@@ -248,38 +248,42 @@ namespace WavToCode
                 "const uint16_t waveByteCode_"+h3.TrimEnd('.')+"[WAVEBYTECODE_"+h3.TrimEnd('.').ToUpper()+"_LENGTH] = {"
             };
 
+            Thread workerThread = new Thread(delegate ()
+            {
 
+                Clean_des(my_new_file2, h, my_file2);
+
+                Check_If_SFile_here(my_new_file, my_file, textBox1.Text);
+
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(my_file2))
+                {
+                    foreach (string line in lines)
+                    {
+                        sw.WriteLine(line);
+                    }
+                    h3 = "";
+                }
+
+                string text = File.ReadAllText(my_file);
+                k = Find_BPS_Num(text);
+                s = Find_Sample_Num(text);
+
+                start = text.IndexOf('{');
+                end = text.IndexOf('}');
+
+                Do_Magic(start, end, text, my_file2);
+
+                Convert(my_file2, ".c");
+                
+            });
 
             if (!Check_If_Full_Or_Empty(textBox1, textBox2, comboBox1))
             {
-                Thread workerThread = new Thread(delegate ()
-                {
-
-                    Clean_des(my_new_file2, h, my_file2);
-
-                    Check_If_SFile_here(my_new_file, my_file, textBox1.Text);
-
-                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(my_file2))
-                    {
-                        foreach (string line in lines)
-                        {
-                            sw.WriteLine(line);
-                        }
-                        h3 = "";
-                    }
-
-                    string text = File.ReadAllText(my_file);
-                    k = Find_BPS_Num(text);
-                    s = Find_Sample_Num(text);
-
-                    start = text.IndexOf('{');
-                    end = text.IndexOf('}');
-
-                    Convert(my_file2, ".c");
+                    workerThread.Start();
+                
                     Cleen(my_new_file, textBox1, textBox2);
-                });
-
-                workerThread.Start();
+                
+               
             }
         
         
@@ -363,17 +367,18 @@ namespace WavToCode
 
         public static double calculate(string s, int Old_BPS, int New_BPS)
         {
+            
             num = int.Parse(s);
             num = num / (Math.Pow(2, Old_BPS));
             num = num * (Math.Pow(2, New_BPS));
             return num;
         }
-        public static void Do_Magic(int start_indx, int end_indx, string source, string file, BackgroundWorker worker)
+        public static void Do_Magic(int start_indx, int end_indx, string source, string file)
         {
             string a = "";
             string b = "";
-
-
+            
+            
             for (int i = start_indx + 1; i < end_indx + 1; i++)
             {
                 if (source.ElementAt(i).ToString() == " ")
