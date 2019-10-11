@@ -55,44 +55,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 20);
+            this.label1.Size = new System.Drawing.Size(195, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hexabitz WavToCode:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label2.Location = new System.Drawing.Point(8, 38);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label2.Location = new System.Drawing.Point(11, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(508, 16);
+            this.label2.Size = new System.Drawing.Size(496, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "We made this simple application for you to convert your 8bits C sound-files to a " +
-    "more ";
+            this.label2.Text = "We made this simple application for you to convert your 8-bit C Wave files ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label3.Location = new System.Drawing.Point(9, 56);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(505, 16);
+            this.label3.Size = new System.Drawing.Size(505, 18);
             this.label3.TabIndex = 3;
-            this.label3.Text = "various range of bits, like 9, 10, 11 and 12bits.. This will give you more option" +
-    "s in your ";
+            this.label3.Text = "to a more various range of bits, like 9, 10, 11, and 12-bits.. This will give you" +
+    " ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label4.Location = new System.Drawing.Point(9, 74);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label4.Location = new System.Drawing.Point(12, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(252, 16);
+            this.label4.Size = new System.Drawing.Size(423, 18);
             this.label4.TabIndex = 4;
-            this.label4.Text = "projects when using our H07R31 module..";
+            this.label4.Text = "more options in your projects when using our H07R3x module..";
             // 
             // label5
             // 
@@ -100,9 +99,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label5.Location = new System.Drawing.Point(12, 115);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 16);
+            this.label5.Size = new System.Drawing.Size(83, 16);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Open C Files:";
+            this.label5.Text = "Open C files:";
             // 
             // label6
             // 
@@ -204,7 +203,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WavToCode.Properties.Resources.Hexabitz;
-            this.pictureBox1.Location = new System.Drawing.Point(522, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(533, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(245, 245);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

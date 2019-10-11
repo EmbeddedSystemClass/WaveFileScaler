@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -226,6 +226,7 @@ namespace WavToCode
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             var my_file = textBox1.Text;
             var my_new_file = Path.ChangeExtension(my_file, ".txt");
             var my_new_file2 = textBox2.Text;
@@ -274,15 +275,12 @@ namespace WavToCode
                 Do_Magic(start, end, text, my_file2);
 
                 Convert(my_file2, ".c");
-                
+
             });
 
             if (!Check_If_Full_Or_Empty(textBox1, textBox2, comboBox1))
             {
                     workerThread.Start();
-                
-                    Cleen(my_new_file, textBox1, textBox2);
-                
                
             }
         
@@ -381,6 +379,8 @@ namespace WavToCode
             
             for (int i = start_indx + 1; i < end_indx + 1; i++)
             {
+                string w = source.ElementAt(i).ToString();
+
                 if (source.ElementAt(i).ToString() == " ")
                 {
                     /* Do nothing */
@@ -394,10 +394,14 @@ namespace WavToCode
                 }
                 else if (source.ElementAt(i).ToString() == "/")
                 {
+                    b += "/";
                     i++;
-                    while (source.ElementAt(i).ToString() != "/")
+                    w = source.ElementAt(i).ToString();
+                    while (source.ElementAt(i).ToString() != "\n")
                     {
+                        b += source.ElementAt(i).ToString();
                         i++;
+                        w = source.ElementAt(i).ToString();
                     }
                     using (System.IO.StreamWriter sw2 = new System.IO.StreamWriter(file, true))
                     {
@@ -448,7 +452,7 @@ namespace WavToCode
                 else if (source.ElementAt(i).ToString() == "}")
                 {
                     calculate(a, k, BPS);
-                    b += num.ToString() + "}";
+                    b += num.ToString() + "};";
                     a = "";
                     num = 0;
                     using (System.IO.StreamWriter sw2 = new System.IO.StreamWriter(file, true))
